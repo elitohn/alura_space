@@ -1,0 +1,52 @@
+{% load static %}
+
+<div class="pagina-inicial">
+        <header class="cabecalho">
+            <img src="{% static '/assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
+             
+            {% if messages %}
+                <div class="messages-container">
+                    {% for message in messages %}
+                        <div class="message-box {{ message.tags }}">
+                            <div class="message-content">
+                                <span class="message-icon">
+                                    {% if message.tags == 'success' %}
+                                        ✓
+                                    {% elif message.tags == 'error' %}
+                                        !
+                                    {% else %}
+                                        i
+                                    {% endif %}
+                                </span>
+
+                                <p>{{ message }}</p>
+                            </div>
+
+                            <button class="message-close" onclick="this.parentElement.remove()">
+                                ×
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <div class="cabecalho__busca">
+                <div class="busca__fundo">
+                    <form action="{% url 'buscar' %}">
+                        <input class="busca__input" type="text" name="buscar" placeholder="O que você procura?">
+                        <button type="submit">
+                            <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main class="principal">
+            <section class="menu-lateral">
+                <nav class="menu-lateral__navegacao">
+                    <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+                    <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/Mais vistas - inativo.png' %}"> Login</a>
+                    <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Cadastro</a>
+                    <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
+                </nav>
+            </section>

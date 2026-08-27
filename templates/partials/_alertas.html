@@ -1,0 +1,27 @@
+{% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            <div class="message-box {{ message.tags }}">
+                <div class="message-content">
+                    <span class="message-icon">
+                        {% if message.tags == 'success' %}
+                            ✓
+                        {% elif message.tags == 'error' %}
+                            !
+                        {% elif message.tags == 'warning' %}
+                            ⚠
+                        {% else %}
+                            i
+                        {% endif %}
+                    </span>
+
+                    <p>{{ message }}</p>
+                </div>
+
+                <button class="message-close" onclick="this.parentElement.remove()">
+                    ×
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

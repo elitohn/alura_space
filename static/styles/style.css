@@ -382,3 +382,258 @@ table {
     border: 2px solid #7B78E5;
     cursor: pointer;
 }
+
+.alert {
+    --bs-alert-bg: transparent;
+    --bs-alert-padding-x: 1rem;
+    --bs-alert-padding-y: 1rem;
+    --bs-alert-margin-bottom: 1rem;
+    --bs-alert-color: inherit;
+    --bs-alert-border-color: transparent;
+    --bs-alert-border: 1px solid var(--bs-alert-border-color);
+    --bs-alert-border-radius: 0.375rem;
+    position: relative;
+    padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+    margin-bottom: var(--bs-alert-margin-bottom);
+    color: var(--bs-alert-color);
+    background-color: var(--bs-alert-bg);
+    border: var(--bs-alert-border);
+    border-radius: var(--bs-alert-border-radius);
+}
+
+.alert-primary {
+    --bs-alert-color: #084298;
+    --bs-alert-bg: #cfe2ff;
+    --bs-alert-border-color: #b6d4fe;
+}
+
+.alert-success {
+    --bs-alert-color: #0f5132;
+    --bs-alert-bg: #d1e7dd;
+    --bs-alert-border-color: #badbcc;
+}
+
+.alert-danger {
+    --bs-alert-color: #842029;
+    --bs-alert-bg: #f8d7da;
+    --bs-alert-border-color: #f5c2c7;
+}
+
+/* Labels */
+form label {
+    display: block;
+    color: #D9D9D9 ;
+    font-size: 14px;
+    margin-bottom: 6px ;
+}
+
+/* Inputs */
+form .form-control {
+    height: 45px;
+    background-color: transparent;
+    border: 2px solid #7B78E5;
+    border-radius: 8px;
+    color: #fff;
+    padding: 10px 13px;
+    transition: all 0.2s ease;
+}
+
+/* Placeholder */
+form .form-control::placeholder {
+    color: #999;
+}
+
+/* Input selecionado */
+form .form-control:focus {
+    background-color: #7c78e577;
+    color: #fff;
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.15);
+}
+
+/* Botão */
+form .btn-success {
+    height: 45px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+form .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(25, 135, 84, 0.35);
+}
+
+/* Clique */
+form .btn-success:active {
+    transform: translateY(0);
+}
+
+.messages-container {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 350px;
+    max-width: calc(100vw - 40px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    z-index: 9999;
+}
+
+.message-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 16px;
+
+    background: #1f1f1f;
+    color: #fff;
+
+    border-radius: 10px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+    animation: messageIn 0.4s ease;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.message-content p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.message-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* SUCESSO */
+.message-box.success {
+    border-left: 4px solid #198754;
+}
+
+.message-box.success .message-icon {
+    background: rgba(25, 135, 84, 0.15);
+    color: #198754;
+}
+
+/* ERRO */
+.message-box.error {
+    border-left: 4px solid #dc3545;
+}
+
+.message-box.error .message-icon {
+    background: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+/* AVISO */
+.message-box.warning {
+    border-left: 4px solid #ffc107;
+}
+
+.message-box.warning .message-icon {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+/* INFORMAÇÃO */
+.message-box.info {
+    border-left: 4px solid #0dcaf0;
+}
+
+.message-box.info .message-icon {
+    background: rgba(13, 202, 240, 0.15);
+    color: #0dcaf0;
+}
+
+/* Botão fechar */
+.message-close {
+    background: none;
+    border: none;
+
+    color: #888;
+
+    font-size: 22px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    padding: 4px;
+    margin-left: 10px;
+
+    transition: 0.2s;
+}
+
+.message-close:hover {
+    color: #fff;
+}
+
+/* Entrada */
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Saída */
+.message-box.hide {
+    animation: messageOut 0.4s ease forwards;
+}
+
+
+@keyframes messageOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .messages-container {
+        top: 15px;
+        right: 15px;
+        left: 15px;
+        width: auto;
+        max-width: none;
+    }
+}
